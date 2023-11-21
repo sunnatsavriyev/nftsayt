@@ -1,0 +1,165 @@
+
+{% extends 'navbar.html' %}
+{% block content %}
+    
+    <!-- navbar start -->
+    
+
+    <!-- sigup start -->
+    <div class="nft_bg"></div>
+
+    <!-- start umumiy container -->
+    <div class="container">
+        <div class="orbitians">
+            <div class="orbitians_title_box">
+                <p class="title">The Orbitians</p>
+                <p class="text">Minted on Sep 30, 2022</p>
+            </div>
+            <div class="orbitians_box">
+                <p class="created">Created By</p>
+                <div class="orbitians_avatar_box">
+                    <img src="../static/images/avatar_nft.png" alt=""> <span class="Orbitian">Orbitian</span>
+                </div>
+            </div>
+            <div class="orbitians_time_box">
+                <div class="time_box orbitians_time">
+                    <p class="time_title">Auction ends in:</p>
+                    <div class="time_item_box">
+                        <div class="date">
+                            <p>59</p>
+                            <p>Hours</p>
+                        </div>
+                        <div class="dot_time">
+                            <p>:</p>
+                        </div>
+                        <div class="date">
+                            <p>59</p>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="dot_time">
+                            <p>:</p>
+                        </div>
+                        <div class="date">
+                            <p>59</p>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                    <button class="orbitians_time_btn">Place Bid</button>
+                </div>
+            </div>
+            <div class="orbitians_text_box">
+                <p class="created">Description</p>
+                <p class="description">
+                    The Orbitians <br>
+                    is a collection of 10,000 unique NFTs on the Ethereum <br> blockchain, <br><br>There are all sorts of beings in the NFT Universe. The <br> most advanced and friendly of the bunch are Orbitians. <br> <br> They live in a metal space machines, high up in the sky <br> and only have one foot on Earth. <br><br>
+                    These Orbitians  are a peaceful race, but they have been <br> at war with a group of invaders for many generations. <br> The invaders are called Upside-Downs, because of their <br> inverted bodies that live on the ground, yet do not <br> know any other way to be. Upside-Downs believe that <br> they will be able to win this war if they could only get <br> an eye into Orbitian territory, so they've taken to make <br> human beings their target.
+                </p>
+                <div class="details">
+                    <p class="created">Details</p>
+                    <p class="description"><i style="color: #858584;" class="fa-solid fa-globe"></i> View on Etherscan</p>
+                    <p class="description"><i style="color: #858584;" class="fa-solid fa-globe"></i> View Original</p>
+                </div>
+                <div class="tags">
+                    <p class="created">Tags</p>
+                    <div class="tags_items">
+                        <div class="tags_item"><p>Animation</p></div>
+                        <div class="tags_item"><p>illustration</p></div>
+                        <div class="tags_item"><p>moon</p></div>
+                        <div class="tags_item"><p>moon</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- more from this artist -->
+        <section class="discover_container">
+            <div class="creators_top">
+                <div class="creators_top_text">
+                    <p class="title">More from this artist</p>
+                </div>
+                <div class="creators_top_btn">
+                    <a href="nft.html"><button class="btn"><i class="fa-solid fa-arrow-right"></i> Go To Artist Page</button></a>
+                </div>
+
+            </div>
+
+            
+            <div class="discover_box_card">
+                {% for nfts in nft  %}
+                <div class="discover_card">
+                    <div class="descover_card_image_box">
+                        <img src="{{nfts.image.url}}" alt="">
+                    </div>
+                    <div class="descover_card_body">
+                        <p class="categories_card_body_text">{{nfts.name}}</p>
+                        <div class="discover_card_profile">
+                            <img src="../static/images/Avatar (3).png" alt="">
+                            <p>{{user}}</p>
+                        </div>
+                    </div>
+                    <div class="descover_card_footer">
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Price</p>
+                            <p class="footer_left_text">{{nfts.price}}</p>
+                        </div>
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Highest Bid</p>
+                            <p class="footer_left_text">{{nfts.Highest_Bid}}</p>
+                        </div>
+                    </div>
+            
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+            
+
+        </section>
+    </div>
+
+
+
+    <!-- footer start -->
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_item1">
+                <div class="items_top">
+                    <img src="../static/images/logo.png" alt="">
+                    <span class="nft_logo">NFT Marketplace</span>
+                </div>
+                <div class="items_bottom">
+                    <p class="footer_items_text">NFT marketplace UI created with Anima for Figma.</p>
+                    <p class="footer_items_text">Join our community</p>
+                    <div class="footer_icons">
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_item2">
+                <p class="nft_logo">Explore</p>
+                <ul class="footer_menu">
+                    <li><a href="#">Marketplace</a></li>
+                    <li><a href="#">Rankings</a></li>
+                    <li><a href="#">Connect a wallet</a></li>
+                </ul>
+            </div>
+            <div class="footer_item3">
+                <p class="nft_logo">Join our weekly digest</p>
+                <p class="footer_items3_text">Get exclusive promotions & updates straight to your inbox.</p>
+                <form class="form">
+                    <input type="email" placeholder="Enter your email here">
+                    <button class="bottom_btn" >     Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hr"></div>
+            <p style="margin-top: 30px;" class="text">Ⓒ NFT Market. Use this template freely.</p>
+            
+        </div>
+    </footer>
+{% endblock %}

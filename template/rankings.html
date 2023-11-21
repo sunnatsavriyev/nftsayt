@@ -1,0 +1,118 @@
+
+
+{% extends 'navbar.html' %}
+{% block content %}
+
+    
+    
+    <!-- Top Creators start -->
+    <div class="container">
+        <div class="marketpalce">
+            <p class="title">Top Creators</p>
+            <p class="text">Check out top ranking NFT artists on the NFT Marketplace.</p>
+        </div>
+        <div class="created_menu">
+            <div class="created_menu_items rankings_menu">
+                <p class="bio">Today</p>
+            </div>
+            <div class="created_menu_items rankings_menu">
+                <p class="bio">This Week</p>
+            </div>
+            <div class="created_menu_items rankings_menu">
+                <p class="bio">This Month</p>
+            </div>
+            <div class="created_menu_items rankings_menu">
+                <p class="bio">All Time</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="rangkings_container">
+            <div class="artist_menu_box">
+                <div class="artist_menu_left">
+                    <p class="artist_menu_text">#  <span style="margin-left: 20px">Artist</span></p>
+                </div>
+                <div class="artist_menu_right">
+                    <div class="artist_menu_right_items">
+                        <p class="artist_menu_text">Change</p>
+                    </div>
+                    <div class="artist_menu_right_items">
+                        <p class="artist_menu_text">NFTs Sold</p>
+                    </div>
+                    <div class="artist_menu_right_items">
+                        <p class="artist_menu_text">Volume</p>
+                    </div>
+                </div>
+            </div>
+
+            {% for avatarr in useredit %}
+            <div class="artist_users">
+                <div class="user">
+                    
+                    <div class="artist_number">
+                        <p>{{avatarr.id}}</p>
+                    </div>
+                    <img style="width: 50px; height: 50px; border-radius: 50%;" src="{{avatarr.image.url}}" alt="">
+                    <p class="user_name">{{avatarr.username}}</p>
+                </div>
+                <div class="user_total">
+                    <div class="change">
+                        <p>+1.41%</p>
+                    </div>
+                    <div class="sold">
+                        <p>602</p>
+                    </div>
+                    <div class="volume">
+                        <p>12.4 ETH</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+    <!-- footer start -->
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_item1">
+                <div class="items_top">
+                    <img src="../static/images/logo.png" alt="">
+                    <span class="nft_logo">NFT Marketplace</span>
+                </div>
+                <div class="items_bottom">
+                    <p class="footer_items_text">NFT marketplace UI created with Anima for Figma.</p>
+                    <p class="footer_items_text">Join our community</p>
+                    <div class="footer_icons">
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_item2">
+                <p class="nft_logo">Explore</p>
+                <ul class="footer_menu">
+                    <li><a href="marketpace.html">Marketplace</a></li>
+                    <li><a href="#">Rankings</a></li>
+                    <li><a href="#">Connect a wallet</a></li>
+                </ul>
+            </div>
+            <div class="footer_item3">
+                <p class="nft_logo">Join our weekly digest</p>
+                <p class="footer_items3_text">Get exclusive promotions & updates straight to your inbox.</p>
+                <form class="form">
+                    <input type="email" placeholder="Enter your email here">
+                    <button class="bottom_btn" >     Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hr"></div>
+            <p style="margin-top: 30px;" class="text">Ⓒ NFT Market. Use this template freely.</p>
+            
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,67 @@
+
+    
+{% extends 'navbar.html' %}
+{% block content %}
+    
+    <!-- marketpalce start -->
+    <div class="container">
+        <div class="marketpalce">
+            <p class="title">Browse Marketplace</p>
+            <p class="text">Browse through more than 50k NFTs on the NFT Marketplace.</p>
+            <form class="marketpalce_form">
+                <input type="search" placeholder="Search your favourite NFTs">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        </div>
+        <div class="created_menu">
+            <div class="created_menu_items marketplace_menu">
+                <p class="bio">Created</p>
+                <div class="create_count">
+                    <p class="c_count">302</p>
+                </div>
+            </div>
+            <div class="created_menu_items marketplace_menu">
+                <p class="bio">Owned</p>
+                <div class="create_count">
+                    <p class="c_count">67</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container_fluid">
+        <div class="container">
+            <div class="artist_card_box">
+                {% for nfts in nft  %}
+                    <div class="discover_card">
+                        <div class="descover_card_image_box">
+                            <img src="{{nfts.image.url}}" alt="">
+                        </div>
+                        <div class="descover_card_body">
+                            <p class="categories_card_body_text">{{nfts.name}}</p>
+                            <div class="discover_card_profile">
+                                <img src="../static/images/Avatar (3).png" alt="">
+                                <p>{{user}}</p>
+                            </div>
+                        </div>
+                        <div class="descover_card_footer">
+                            <div class="discover_footer">
+                                <p class="footer_left_title">Price</p>
+                                <p class="footer_left_text">{{nfts.price}}</p>
+                            </div>
+                            <div class="discover_footer">
+                                <p class="footer_left_title">Highest Bid</p>
+                                <p class="footer_left_text">{{nfts.Highest_Bid}}</p>
+                            </div>
+                        </div>
+                
+                    </div>
+                {% endfor %}
+            
+        <div class="container">
+            <div class="hr"></div>
+            <p style="margin-top: 30px;" class="text">Ⓒ NFT Market. Use this template freely.</p>
+            
+        </div>
+    </footer>
+
+{% endblock %}

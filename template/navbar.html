@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- cdnjs icons link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css file link -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel="stylesheet" href="{% static 'marketpalce.css' %}">
+    <link rel="stylesheet" href="{% static 'artist.css' %}">
+    <link rel="stylesheet" href="{% static 'nft.css' %}">
+    <link rel="stylesheet" href="{% static 'rangkings.css' %}">
+
+</head>
+<body>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="nav_menu">
+            <a href="{% url 'index' %}"><img src="./static/static/images/logo.png" alt=""></a>
+            <div class="menu_list">
+                <ul class="menu">
+                    <li><a href="{% url 'marketpace' %}">Marketplace</a></li>
+                    <li><a href="{% url 'rankings' %}">Rankings</a></li>
+                    <li><a href="{% url 'connect' %}">Connect a wallet</a></li>
+                    <li><a href="{% url 'addnft' user.id %}">Add NFT</a></li>
+                </ul>
+                
+            {% if user.is_authenticated %}
+                <form  action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button class="signup" type="submit">
+                        <i class="fa-regular fa-user"></i>
+                        Chiqish
+                    </button>
+                </form>
+                
+            {% else %}
+                <a class="signup" href="{% url 'register' %}">
+                    sigup
+                </a>
+            {% endif %}                          
+            </div>
+            <div class="burger_menu_icon">
+                <div class="burger menu1"></div>
+                <div class="burger menu2"></div>
+                <div class="burger menu1"></div>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    
+<form  action="{% url 'eddnft' user.id  %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% for f in form %}
+        <div class="col-md-6">
+            <p>{{f.label}}</p>
+            <div class="mt-3">{{f}}</div>
+        </div>
+        {% endfor %}
+    <br>
+    <button class="btn btn-primary">O'zgartirish</button>
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+
+{% extends 'navbar.html' %}
+{% block content %}
+
+    <!-- sigup start -->
+    <section class="signup_container">
+        <div class="signup_left">   
+            <img src="../static/images/conneting.png" alt="">
+        </div>
+        <div class="signup_right">
+            <div class="signup_right_form">
+                <p class="title">Akkauntga kirish</p>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div style="color: red;">
+                            <h2>{{message}}</h2>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <p class="text signup_text">Salom! NFT akkauntga kirish ma'lumotlaringizni kiriting.</p>
+                <form class="sign_form" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="input_box">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" placeholder="Username" name="username">
+                    </div>
+                    <div class="input_box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password1" placeholder="Password">
+                    </div>
+                    <div class="input_box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password2" placeholder="Confirm Password">
+                    </div>
+                    <button class="sign_btn">Kirish</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_item1">
+                <div class="items_top">
+                    <img src="./images/logo.png" alt="">
+                    <span class="nft_logo">NFT Marketplace</span>
+                </div>
+                <div class="items_bottom">
+                    <p class="footer_items_text">NFT marketplace UI created with Anima for Figma.</p>
+                    <p class="footer_items_text">Join our community</p>
+                    <div class="footer_icons">
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_item2">
+                <p class="nft_logo">Explore</p>
+                <ul class="footer_menu">
+                    <li><a href="#">Marketplace</a></li>
+                    <li><a href="#">Rankings</a></li>
+                    <li><a href="#">Connect a wallet</a></li>
+                </ul>
+            </div>
+            <div class="footer_item3">
+                <p class="nft_logo">Join our weekly digest</p>
+                <p class="footer_items3_text">Get exclusive promotions & updates straight to your inbox.</p>
+                <form class="form">
+                    <input type="email" placeholder="Enter your email here">
+                    <button class="bottom_btn" >     Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hr"></div>
+            <p style="margin-top: 30px;" class="text">Ⓒ NFT Market. Use this template freely.</p>
+            
+        </div>
+    </footer>
+{% endblock %}

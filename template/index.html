@@ -1,0 +1,438 @@
+
+{% extends 'navbar.html' %}
+{% block content %}
+
+    <div class="container">
+        <main class="main">
+            <div class="main_left">
+                <p class="main_title">Discover  digital art & Collect NFTs</p>
+                <p class="main_text">NFT marketplace UI created with Anima for Figma. Collect, buy and sell art from more than 20k NFT artists.</p>
+                <div class="main_right mobile_tap">
+                    <div class="main_card">
+                        <div class="main_card_img">
+                            <img src="./static/images/maincard.png" alt="image bor">
+                        </div>
+                        <p>Space Walking</p>
+                        <div class="card_bottom">
+                            <img class="avatar" src="./static/images/avatar.png" alt="">
+                            <span>Animakid</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="nft.html"><button class="main_btn"><i class="fa-solid fa-rocket"></i> Get Started</button></a>
+                <div class="main_left_bottom">
+                    <div class="main_cound">
+                        <p class="count">240k+ </p>
+                        <p class="count_name">Total Sale</p>
+                    </div>
+                    <div class="main_cound">
+                        <p class="count">100k+</p>
+                        <p class="count_name">Auctions</p>
+                    </div>
+                    <div class="main_cound">
+                        <p class="count">240k+</p>
+                        <p class="count_name">Artists</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main_right mobile_card">
+                <div class="main_card">
+                    <div class="main_card_img">
+                        <img src="./static/images/maincard.png" alt="image bor">
+                    </div>
+                    <p>Space Walking</p>
+                    <div class="card_bottom">
+                        <img class="avatar" src="./static/images/avatar.png" alt="">
+                        <span>Animakid</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Trending Collection -->
+        <section class="treding_container">
+            <div class="treding_top">
+                <p class="title">Trending Collection</p>
+                <p class="text">Checkout our weekly updated trending collection.</p>
+            </div>
+            <div class="treding_bottom">
+                <div class="treding_card ">
+                    <div class="treding_card_image">
+                        <img src="./static/images/Primary Photo Placeholder.png" alt="">
+                    </div>
+                    <div class="treding_card_body">
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder.png" alt=""></div>
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder (1).png" alt=""></div>
+                        <div class="treding_card_items_box"><p>1025+</p></div>
+                    </div>
+                    <div class="treding_card_footer">
+                        <p class="card_footer_title">DSGN Animals</p>
+                        <div class="treding_footer_bottom">
+                            <img src="./static/images/Avatar Placeholder.png" alt="">
+                            <span>MrFox</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="treding_card treding_card_mobile1">
+                    <div class="treding_card_image">
+                        <img src="./static/images/Primary Photo Placeholder (1).png" alt="">
+                    </div>
+                    <div class="treding_card_body">
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder (2).png" alt=""></div>
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder (3).png" alt=""></div>
+                        <div class="treding_card_items_box"><p>1025+</p></div>
+                    </div>
+                    <div class="treding_card_footer">
+                        <p class="card_footer_title">DSGN Animals</p>
+                        <div class="treding_footer_bottom">
+                            <img src="./static/images/Avatar Placeholder (1).png" alt="">
+                            <span>MrFox</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="treding_card treding_card_mobile2">
+                    <div class="treding_card_image">
+                        <img src="./static/images/Primary Photo Placeholder (2).png" alt="">
+                    </div>
+                    <div class="treding_card_body">
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder (4).png" alt=""></div>
+                        <div class="treding_card_items"><img src="./static/images/Secondary Photo Placeholder (5).png" alt=""></div>
+                        <div class="treding_card_items_box"><p>1025+</p></div>
+                    </div>
+                    <div class="treding_card_footer">
+                        <p class="card_footer_title">DSGN Animals</p>
+                        <div class="treding_footer_bottom">
+                            <img src="./static/images/Avatar Placeholder (2).png" alt="">
+                            <span>MrFox</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- top Creators start -->
+        <section class="creators">
+            <div class="creators_top">
+                <div class="creators_top_text">
+                    <p class="title">Top creators</p>
+                    <p class="text">Checkout Top Rated Creators on the NFT Marketplace</p>
+                </div>
+                <div class="creators_top_btn">
+                    <button class="btn"><i class="fa-solid fa-rocket"></i> View Rankings</button>
+                </div>
+            </div>
+            <div class="creators_button">
+                {% for edit in useredit %}
+                    <a href="artist.html">
+                        <div class="creators_card">
+                            <div class="creators_card_image">
+                                <img src="{{ edit.image.url}}" alt="">
+                            </div>
+
+                            <div class="creators_card_footer">
+                                <p class="creators_card_footer_title">{{ edit.username }}</p>
+                                <a class="btn btn-primary" href="{% url 'edituser' user.id %}">edit_user</a>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="catigores">
+            <p class="title">Browse Categories</p>
+            <div class="categories_container">
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/PaintBrush.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (1).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Art</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/Swatches.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (2).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Collectibles</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/MusicNotes.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (3).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Music</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/Camera.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (4).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Photography</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/VideoCamera.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (5).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Video</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/MagicWand.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (6).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Utility</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/Basketball.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (7).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Sport</p>
+                </div>
+                <div class="categories_card">
+                    <div class="categories_card_img">
+                        <img class="categories_card_img1" src="./static/images/Planet.png" alt="">
+                        <img class="categories_card_img2" src="./static/images/Image Placeholder (8).png" alt="">
+                    </div>
+                    <p class="categories_card_body_text">Virtual Worlds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discover start -->
+        <section class="discover_container">
+            <div class="creators_top">
+                <div class="creators_top_text">
+                    <p class="title">Discover More NFTs</p>
+                    <p class="text">Explore new trending NFTs</p>
+                </div>
+                <div class="creators_top_btn">
+                    <a href="nft.html"><button class="btn"><i class="fa-regular fa-eye"></i> See All</button></a>
+                </div>
+
+            </div>
+
+            <div class="discover_box_card">
+                <div class="discover_card">
+                    <div class="descover_card_image_box">
+                        <img src="./static/images/Image Placeholder (9).png" alt="">
+                    </div>
+                    <div class="descover_card_body">
+                        <p class="categories_card_body_text">Distant Galaxy</p>
+                        <div class="discover_card_profile">
+                            <img src="./static/images/Avatar (3).png" alt="">
+                            <p>MoonDancer</p>
+                        </div>
+                    </div>
+                    <div class="descover_card_footer">
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Price</p>
+                            <p class="footer_left_text">1.63 ETH</p>
+                        </div>
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Highest Bid</p>
+                            <p class="footer_left_text">0.33 wETH</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="discover_card">
+                    <div class="descover_card_image_box">
+                        <img src="./static/images/Image Placeholder (10).png" alt="">
+                    </div>
+                    <div class="descover_card_body">
+                        <p class="categories_card_body_text">Life On Edena</p>
+                        <div class="discover_card_profile">
+                            <img src="./static/images/Asset 12 2 (5).png" alt="">
+                            <p>NebulaKid</p>
+                        </div>
+                    </div>
+                    <div class="descover_card_footer">
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Price</p>
+                            <p class="footer_left_text">1.63 ETH</p>
+                        </div>
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Highest Bid</p>
+                            <p class="footer_left_text">0.33 wETH</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="discover_card discover_card1">
+                    <div class="descover_card_image_box">
+                        <img src="./static/images/Image Placeholder (11).png" alt="">
+                    </div>
+                    <div class="descover_card_body">
+                        <p class="categories_card_body_text">AstroFiction</p>
+                        <div class="discover_card_profile">
+                            <img src="./static/images/Asset 12 2 (6).png" alt="">
+                            <p>Spaceone</p>
+                        </div>
+                    </div>
+                    <div class="descover_card_footer">
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Price</p>
+                            <p class="footer_left_text">1.63 ETH</p>
+                        </div>
+                        <div class="discover_footer">
+                            <p class="footer_left_title">Highest Bid</p>
+                            <p class="footer_left_text">0.33 wETH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- bg magec section start -->
+
+    <div class="bg_megic">
+        <div class="megic_container">
+            <div class="megic_left">
+                <div class="avatar_megic">
+                    <img src="./static/images/megic_avatar.png" alt="">
+                    <p class="avatar_megic_text">Shroomie</p>
+                </div>
+                <p class="magic_mashrooms">Magic Mashrooms</p>
+                <button class="megic_btn"><i class="fa-regular fa-eye"></i> See NFT</button>
+            </div>
+            <div class="megic_right">
+                <div class="time_box">
+                    <p class="time_title">Auction ends in:</p>
+                    <div class="time_item_box">
+                        <div class="date">
+                            <p>59</p>
+                            <p>Hours</p>
+                        </div>
+                        <div class="dot_time">
+                            <p>:</p>
+                        </div>
+                        <div class="date">
+                            <p>59</p>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="dot_time">
+                            <p>:</p>
+                        </div>
+                        <div class="date">
+                            <p>59</p>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- works start -->
+        <div class="works">
+            <p class="title">How it works</p>
+            <p class="text">Find out how to get started</p>
+
+            <div class="works_container">
+                <div class="works_card">
+                    <div class="works_card_img_box">
+                        <img src="./static/images/Icon.png" alt="">
+                    </div>
+                    <div class="works_card_text_box">
+                        <p class="works_card_title">Setup Your wallet</p>
+                        <p class="works_card_text">Set up your wallet of choice. Connect it to the Animarket by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                </div>
+                <div class="works_card">
+                    <div class="works_card_img_box">
+                        <img src="./static/images/Icon (1).png" alt="">
+                    </div>
+                    <div class="works_card_text_box">
+                        <p class="works_card_title">Setup Your wallet</p>
+                        <p class="works_card_text">Set up your wallet of choice. Connect it to the Animarket by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                </div>
+                <div class="works_card">
+                    <div class="works_card_img_box">
+                        <img src="./static/images/Icon (2).png" alt="">
+                    </div>
+                    <div class="works_card_text_box">
+                        <p class="works_card_title">Setup Your wallet</p>
+                        <p class="works_card_text">Set up your wallet of choice. Connect it to the Animarket by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- bottom start -->
+        <div class="bottom_section">
+            <div class="bottom_section_container">
+                <div class="bottom_left">
+                    <div class="bottom_left_image_box">
+                        <img src="./static/images/bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="bottom_right">
+                    <div class="bottom_right_text_box">
+                        <p class="title">Join our weekly <br> digest</p>
+                        <p class="text">Get exclusive promotions & updates <br> straight to your inbox.</p>
+                    </div>
+                    <form class="form">
+                        <input type="email" placeholder="Enter your email here">
+                        <button class="bottom_btn" ><i class="fa-regular fa-envelope"></i> Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_item1">
+                <div class="items_top">
+                    <img src="./static/images/logo.png" alt="">
+                    <span class="nft_logo">NFT Marketplace</span>
+                </div>
+                <div class="items_bottom">
+                    <p class="footer_items_text">NFT marketplace UI created with Anima for Figma.</p>
+                    <p class="footer_items_text">Join our community</p>
+                    <div class="footer_icons">
+                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_item2">
+                <p class="nft_logo">Explore</p>
+                <ul class="footer_menu">
+                    <li><a href="#">Marketplace</a></li>
+                    <li><a href="#">Rankings</a></li>
+                    <li><a href="#">Connect a wallet</a></li>
+                </ul>
+            </div>
+            <div class="footer_item3">
+                <p class="nft_logo">Join our weekly digest</p>
+                <p class="footer_items3_text">Get exclusive promotions & updates straight to your inbox.</p>
+                <form class="form">
+                    <input type="email" placeholder="Enter your email here">
+                    <button class="bottom_btn" >     Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hr"></div>
+            <p style="margin-top: 30px;" class="text">Ⓒ NFT Market. Use this template freely.</p>
+            
+        </div>
+    </footer>
+
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+{% endblock %}
